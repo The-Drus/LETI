@@ -95,7 +95,7 @@ char** write_cross(char** raster, int x0, int y0, int x1, int y1)
 	int black_point_a = x0;
 	int black_point_b = x1;
 	RGBTRIPLE* string_for_work = NULL; //Указатель на пиксель (строку из пикселей)
-	RGBTRIPLE black_pixel = {0,0,255};	//Пиксель черного цвета
+	RGBTRIPLE black_pixel = {0,0,0};	//Пиксель черного цвета
 /*Цикл "бегает" только в пределах введеных координат*/
 	for (int i = y1; i <= y0; i++)
 	{
