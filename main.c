@@ -22,25 +22,19 @@ version 1.0
 #include "bmp_structs.h" //Включение заголовочных файлов с объявлением
 #include "functions.h"   //структур и функций.
 
-/*Если объявлен макрос, соответсвующий компилятору MinGW, то объявляется
-макрос, информирующий о том, что компиляция идет под OC Windows*/
-#if defined(__MINGW32__) || defined(__MINGW64__)
-#define FOR_WINDOWS
-#endif
+#define NAME_SIZE 100
+
+
 
 int main()
 {
-	#ifdef FOR_WINDOWS		//В зависимости от платформы 
-	system("cls");			//по разному очищается экран.
-	#else					//Также для ОС Windows
+	
 	system("clear");		//вызывается функция для 
-	#endif					//задержки экрана (в конце).
-	printf("\n\n\n");
 
 /*Выделяется память под строку и считывается имя файла и
 координаты левого верхнего и правого нижнего углов,
 в пределах которых будет нарисован крест.*/
-	char* bmp_file_name = (char*)malloc(sizeof(char)*100);
+	char* bmp_file_name = (char*)malloc(sizeof(char)*NAME_SIZE);
 	printf("Write name of an existing bmp file: ");
 	fgets (bmp_file_name, 100, stdin);
 	*(strchr(bmp_file_name, '\n')) = '\0';
@@ -59,10 +53,6 @@ int main()
 	{	
 		free(bmp_file_name);
 
-		#ifdef FOR_WINDOWS
-		system("pause");
-		#endif
-
 		return 0;
 	}
 
@@ -80,10 +70,6 @@ bmp картинки. Также выделяются заголовки с ин
 	{
 		printf("Fail with size of picture\n");
 		free(bmp_file_name);
-
-		#ifdef FOR_WINDOWS
-		system("pause");
-		#endif
 
 		return 0;
 	}
@@ -104,9 +90,7 @@ bmp картинки. Также выделяются заголовки с ин
 
 	free(bmp_file_name); //Память, выделенная под строку, освобождается
 
-	#ifdef FOR_WINDOWS
-		system("pause");
-	#endif
+
 
 	return 0;
 }
