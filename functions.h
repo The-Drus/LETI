@@ -6,5 +6,4 @@ char** write_cross(char**, int, int, int, int);
 
 void create_new_bmp(char*, char**, BITMAPFILEHEADER*,BITMAPINFOHEADER*);
 
-void print_characts(BITMAPFILEHEADER*,BITMAPINFOHEADER*);
 
