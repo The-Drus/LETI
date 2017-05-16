@@ -148,16 +148,3 @@ void create_new_bmp(char* old_name, char** raster, BITMAPFILEHEADER* file_info,
 }
 
 
-/*Вспомогательная функция для проверки.
-Выводит основную информацию о полученном файле.*/
-void print_characts(BITMAPFILEHEADER* file_info,
-								BITMAPINFOHEADER* picture_info)
-{
-	printf("----------------------\n");
-	printf("Type %d\nSize %d\nBits %d\n",file_info->bfType, file_info->bfSize, file_info->bfOffBits);
-	printf("\nbiSize %d\nWight %d\nHeigth %d\nCompression %d\nSize image %d\nPxlsPerMETr %d %d\nClr usd and imp %d %d\n",picture_info->biSize, picture_info->biWidth, picture_info->biHeight, picture_info->biCompression, picture_info->biSizeImage, picture_info->biXPelsPerMeter, picture_info->biYPelsPerMeter, picture_info->biClrUsed, picture_info->biClrImportant); 
-	printf("----------------------\n");
-}
-
-
-
